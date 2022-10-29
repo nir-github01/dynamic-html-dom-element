@@ -1,0 +1,52 @@
+#product_div{
+   border: 2px solid blue; 
+   width:fit-content;
+   text-align:center;
+   box-shadow: 4px 4px 4px;
+   border-radius: 0.4vw;
+   margin: 4rem auto;
+}
+
+#imgid{
+   width: 100px;
+   height: 100px;
+}
+#figcap1{
+   color: red;
+   font-size: larger;
+   font-weight: bolder;
+   line-height: 3rem;
+}
+#figcap2{
+   color: rgb(6, 6, 85);
+   font-size: larger;
+   font-weight: bold;
+   line-height: 2rem;
+}
+#increment{
+   width: 2.7rem;
+   height: 2.5rem;
+   font-size: larger;
+   font-weight: bolder;
+   font-style: normal;
+   color: red;
+   line-height: 2rem;
+}
+#decrement{
+   width: 2.7rem;
+   height: 2.5rem;
+   font-size: larger;
+   font-weight: bolder;
+   font-style: normal;
+   color: red;
+   line-height: 2rem;
+}
+#count{
+   width: 2.7rem;
+   height: 2.5rem;
+   font-size: larger;
+   font-weight: bolder;
+   font-style: normal;
+   color: red;
+   line-height: 2rem;
+}
