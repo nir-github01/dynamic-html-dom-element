@@ -1,3 +1,22 @@
+var product =[
+    {
+        productName:'Pepsi',
+        productPrice:'70',
+        productImg:'https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg'
+    },
+    {
+        productName:'Limca',
+        productPrice:'40',
+        productImg:'https://5.imimg.com/data5/SELLER/Default/2020/9/GW/PZ/BL/44930791/limca-soft-drink-lemon-600ml-1-800x800-500x500.jpg'
+    },
+    {
+        productName:'Sprite',
+        productPrice:'90', 
+        productImg:'https://www.jiomart.com/images/product/600x600/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg'
+    },
+];
+  
+  
 function onLoad(){
     var root=document.getElementById('root');
     var Div=document.createElement('div');
@@ -34,7 +53,7 @@ function onLoad(){
     Image.id='imgid';
     var imgId =document.getElementById('imgid');
    // imgId.src=`${productImg}`
-    Image.src='https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg';
+   imgId.src='https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg';
     //figure caption
     figureChild.appendChild(Figcaption1);
     figureChild.appendChild(Figcaption2);
@@ -54,60 +73,63 @@ function onLoad(){
     P_Div.appendChild(BtnDec);
 
     //Increment and decrement counter function
-     var counter=0;
+    var counter=0;
     //Addin id attribute
     BtnCount.id='count';
     BtnIn.id='increment';
     BtnDec.id='decrement';
+     //Counter button
+     var countText=document.getElementById('count');
     //increment Button
     var incButton=document.getElementById('increment');
     incButton.innerHTML='+'  ;
-    incButton.onclick=function(){
+    incButton.onclick=function (){
         counter=counter + 1;
+        countText.innerHTML=counter;
     };
 
-   //Counter button
-    var countText=document.getElementById('count');
-    countText.innerText=counter;
-
+  
+    //countText.innerHTML=counter;
+     countText.innerHTML=counter;
     //Decrement Button
     var decButton=document.getElementById('decrement');
     decButton.innerHTML= '-';
-    decButton.onclick=function(){
-        counter= counter - 1;
-    };
+    decButton.onclick= function(){
+        counter=counter - 1;
+        if(counter > 0){
+            countText.innerHTML=counter;
+        }else{
+            counter=0;
+            countText.innerHTML=counter;
+        }
+     
+    }
    
     // function incCount(){
     //   counter =counter + 1;
-      
+    //   countText.innerHTML=counter;
     // }
   
     // function decCount(){
     //   counter =counter - 1;
+    //   countText.innerHTML=counter;
     // }
-
-
-var product =[
-    {
-        productName:'Pepsi',
-        productPrice:'70',
-        productImg:''
-    },
-    {
-        productName:'Limca',
-        productPrice:'40',
-        productImg:''
-    },
-    {
-        productName:'Sprite',
-        productPrice:'90', 
-        productImg:''
-    },
-];
-
-    
-    
-
-}
+  
+    product.forEach(element => {
+        Object.entries(element).forEach(([key, value]) => {
+         // alert(`${key} ${value}`);
+          if(key=='productImg'){
+            imgId.src=`${value}`;
+          }
+          if(key == 'productName'){
+            figCap1.innerHTML=`${value}`
+          }
+         if(key == 'productPrice'){
+            figCap2.innerHTML= 'Price' +'&nbsp'+ `${value}`;
+         }
+       
+          });
+       });
+    }
 
 
