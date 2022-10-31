@@ -1,135 +1,135 @@
-var product =[
+var product = [
     {
-        productName:'Pepsi',
-        productPrice:'70',
-        productImg:'https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg'
+        productId: '1',
+        productName: 'Pepsi',
+        productPrice: '70',
+        productImg: 'https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg'
     },
     {
-        productName:'Limca',
-        productPrice:'40',
-        productImg:'https://5.imimg.com/data5/SELLER/Default/2020/9/GW/PZ/BL/44930791/limca-soft-drink-lemon-600ml-1-800x800-500x500.jpg'
+        productId: '2',
+        productName: 'Limca',
+        productPrice: '40',
+        productImg: 'https://5.imimg.com/data5/SELLER/Default/2020/9/GW/PZ/BL/44930791/limca-soft-drink-lemon-600ml-1-800x800-500x500.jpg'
     },
     {
-        productName:'Sprite',
-        productPrice:'90', 
-        productImg:'https://www.jiomart.com/images/product/600x600/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg'
+        productId: '3',
+        productName: 'Sprite',
+        productPrice: '90',
+        productImg: 'https://www.jiomart.com/images/product/600x600/490809343/sprite-300-ml-can-product-images-o490809343-p490809343-0-202203151402.jpg'
     },
 ];
+const root = document.getElementById('root');
+let counter = 0;
+function onLoad() {
   
-  
-function onLoad(){
-    var root=document.getElementById('root');
-    var Div=document.createElement('div');
-    var Pre=document.createElement('pre');
-    var Span=document.createElement('span');
-    var BtnCount =document.createElement('button');
-    var BtnIn =document.createElement('button');
-    var BtnDec =document.createElement('button');
-    var Figure=document.createElement('figure');
-    var Image =document.createElement('img');
-    var Figcaption1=document.createElement('figcaption');
-    var Figcaption2=document.createElement('figcaption');
-    const node = document.createTextNode("This is new ");
-    const node1 = document.createTextNode("This is new div element");
-   // Div.appendChild(node);
-     //create div element tag
-    root.appendChild(Div);
-    //add id attribute in div tag
-    Div.id='product_div';
-    //getting second div element
-    var P_Div=document.getElementById('product_div');
-    //create pre element tag
-    P_Div.appendChild(Pre);
-   // Pre.appendChild(node1);
+    for (let index in product) {
+        const pl = product[index];
+        //div element
+        const Div = document.createElement('div');
+        Div.id = 'product_div';
+        const P_Div = document.getElementById('product_div');
+        //pre element
+        var Pre = document.createElement('pre');
+        //span element
+        var Span = document.createElement('span');
 
-    //create figure element within div & adding Id
-    Div.appendChild(Figure);
-    //Figure.appendChild(node1)
-    Figure.id ='figure'
-    //getting figure element
-    var figureChild=document.getElementById('figure');
-    // Creating figure child element tag
-    figureChild.appendChild(Image);
-    Image.id='imgid';
-    var imgId =document.getElementById('imgid');
-   // imgId.src=`${productImg}`
-   imgId.src='https://www.jiomart.com/images/product/600x600/490916734/pepsi-250-ml-product-images-o490916734-p490916734-0-202206231805.jpg';
-    //figure caption
-    figureChild.appendChild(Figcaption1);
-    figureChild.appendChild(Figcaption2);
-    Figcaption1.id='figcap1';
-    Figcaption2.id='figcap2';
-    var figCap1=document.getElementById('figcap1');
-    // figCap1.innerHTML = `${productName}`;
-    figCap1.innerHTML = "Pepsi";
-    var figCap2=document.getElementById('figcap2');
-    figCap2.innerHTML = "Price" +'&nbsp' + 70;
-    // figCap2.innerHTML = "Price" +'&nbsp' + `${productPrice}`;
-   
+        //figure element
+        var Figure = document.createElement('figure');
+        Figure.id = 'figure';
+        var figureId = document.getElementById('figure');
+        //Image
+        var Image = document.createElement('img');
+        Image.id = 'imgid';
+        var imgId = document.getElementById('imgid');
+        Image.src = pl.productImg;
+        //figurecaption
+        var Figcaption1 = document.createElement('figcaption');
+        Figcaption1.innerHTML = pl.productName;
+        var Figcaption2 = document.createElement('figcaption');
+        Figcaption2.innerHTML ="Price" +'&nbsp' + pl.productPrice;
+        Figcaption1.id = 'figcap1';
+        Figcaption2.id = 'figcap2';
+        var figCap1 = document.getElementById('figcap1');
+        var figCap2 = document.getElementById('figcap2');
+        //button element
+        var BtnCount = document.createElement('button');
+        var BtnIn = document.createElement('button');
+        var BtnDec = document.createElement('button');
+        BtnCount.id = 'count';
+        BtnIn.id = 'increment';
+        BtnDec.id = 'decrement';
+        var countText = document.getElementById('count');
+        var incButton = document.getElementById('increment');
+        var decButton = document.getElementById('decrement');
+        BtnIn.innerHTML ='+';
+        BtnCount.innerHTML = counter;
+        BtnDec.innerHTML ='-';
 
-    //Create increment, decrement Button and span
-    P_Div.appendChild(BtnIn);
-    P_Div.append(BtnCount);
-    P_Div.appendChild(BtnDec);
+        BtnIn.onclick = function () {
+            counter = counter + 1;
+            countText.innerHTML = counter;
+        };
+        BtnDec.onclick = function () {
+            counter = counter - 1;
+            if (counter > 0) {
+                countText.innerHTML = counter;
+            } else {
+                counter = 0;
+                countText.innerHTML = counter;
+            }
 
-    //Increment and decrement counter function
-    var counter=0;
-    //Addin id attribute
-    BtnCount.id='count';
-    BtnIn.id='increment';
-    BtnDec.id='decrement';
-     //Counter button
-     var countText=document.getElementById('count');
-    //increment Button
-    var incButton=document.getElementById('increment');
-    incButton.innerHTML='+'  ;
-    incButton.onclick=function (){
-        counter=counter + 1;
-        countText.innerHTML=counter;
-    };
-
-  
-    //countText.innerHTML=counter;
-     countText.innerHTML=counter;
-    //Decrement Button
-    var decButton=document.getElementById('decrement');
-    decButton.innerHTML= '-';
-    decButton.onclick= function(){
-        counter=counter - 1;
-        if(counter > 0){
-            countText.innerHTML=counter;
-        }else{
-            counter=0;
-            countText.innerHTML=counter;
         }
-     
-    }
-   
-    // function incCount(){
-    //   counter =counter + 1;
-    //   countText.innerHTML=counter;
-    // }
-  
-    // function decCount(){
-    //   counter =counter - 1;
-    //   countText.innerHTML=counter;
-    // }
-  
-    product.forEach(element => {
-        Object.entries(element).forEach(([key, value]) => {
-         // alert(`${key} ${value}`);
-          if(key=='productImg'){
-            imgId.src=`${value}`;
-          }
-          if(key == 'productName'){
-            figCap1.innerHTML=`${value}`
-          }
-         if(key == 'productPrice'){
-            figCap2.innerHTML= 'Price' +'&nbsp'+ `${value}`;
-         }
-       
-          });
-       });
-    }
 
+
+        root.append(Div);
+        Div.append(Figure);
+        Figure.append(Image);
+        Figure.append(Figcaption1);
+        Figure.append(Figcaption2);
+        Div.append(BtnIn);
+        Div.append(BtnCount);
+        Div.append(BtnDec);
+
+    }
+}
+
+// productList = [
+//     { pid: 1001, pname: "Pepsi", unitPrice: 30.0, img: 'images/pepsi.jfif', stockQuantity: 100 },
+//     { pid: 1002, pname: "Thumsup", unitPrice: 30.0, img: 'images/thumsup.jfif', stockQuantity: 100 },
+//     { pid: 1003, pname: "Limca", unitPrice: 30.0, img: 'images/limca.jfif', stockQuantity: 100 }
+// ]
+// const root = document.getElementById("root");
+
+// function onLoad() {
+//     for (let index in product) {
+//         const p1=product[index];
+//         const div_p1 = document.createElement("div");
+//         const pre_p1 = document.createElement("pre")
+
+//         const img_p1 = document.createElement("img");
+//         img_p1.src = p1.productImg;
+
+//         const span_pname_p1 = document.createElement("span");
+//         span_pname_p1.innerText = p1.productName;
+
+//         const btn_dec_p1 = document.createElement("button");
+//         btn_dec_p1.innerText = "-";
+
+//         const span_quantity_p1 = document.createElement("span");
+//         span_quantity_p1.innerText = 0;
+
+//         const btn_inc_p1 = document.createElement("button");
+//         btn_inc_p1.innerText = "+";
+
+
+//         pre_p1.append(img_p1);
+//         pre_p1.append(span_pname_p1);
+//         pre_p1.append(btn_dec_p1);
+//         pre_p1.append(span_quantity_p1)
+//         pre_p1.append(btn_inc_p1);
+
+//         div_p1.append(pre_p1);
+//         root.append(div_p1);
+//     }
+// }
 
