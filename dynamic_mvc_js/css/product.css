@@ -1,3 +1,8 @@
+#root{
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}
 #product_div{
    border: 2px solid blue; 
    width:fit-content;
@@ -23,7 +28,7 @@
    font-weight: bold;
    line-height: 2rem;
 }
-#increment{
+.increment{
    width: 2.7rem;
    height: 2.5rem;
    font-size: larger;
@@ -32,7 +37,7 @@
    color: red;
    line-height: 2rem;
 }
-#decrement{
+.decrement{
    width: 2.7rem;
    height: 2.5rem;
    font-size: larger;
@@ -41,7 +46,7 @@
    color: red;
    line-height: 2rem;
 }
-#count{
+.count{
    width: 2.7rem;
    height: 2.5rem;
    font-size: larger;
